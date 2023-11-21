@@ -12,8 +12,9 @@ router.get("/", async (req, res) => {
     });
     res.status(200).json(Tagdata);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
-  }
+  }  
 });
 
 // find a single tag by its `id`
@@ -29,8 +30,10 @@ router.get("/:id", async (req, res) => {
     }
     res.status(200).json(tagdatabyid);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
+  
 });
 
 router.post("/", async (req, res) => {
@@ -39,8 +42,9 @@ router.post("/", async (req, res) => {
     const newTag = await Tag.create(req.body);
     res.status(200).json(newTag);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
-  }
+  }  
 });
 
 // update a tag's name by its `id` value
